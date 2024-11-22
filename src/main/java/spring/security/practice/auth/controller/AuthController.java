@@ -28,18 +28,8 @@ public class AuthController extends BaseController<AuthenticationRes> {
         return getResponse(result);
     }
 
-    @GetMapping("/home")
-    public String handleWelcome() {
-        return "home";
-    }
-
-    @GetMapping("/admin/home")
-    public String handleAdminHome() {
-        return "home_admin";
-    }
-
-    @GetMapping("/user/home")
-    public String handleUserHome() {
-        return "home_user";
+    @GetMapping("/test")
+    public String test() {
+        return "test";
     }
 }

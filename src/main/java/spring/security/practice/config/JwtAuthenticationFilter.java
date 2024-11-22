@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 import spring.security.practice.auth.repo.TokenRepo;
 import spring.security.practice.auth.service.JwtService;
-import spring.security.practice.auth.service.MyUserDetailService;
 
 import java.io.IOException;
 
@@ -25,7 +24,9 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final TokenRepo tokenRepo;
-    private final MyUserDetailService userDetailsService;
+    @Autowired
+    @Lazy
+    private UserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
